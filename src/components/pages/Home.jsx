@@ -1,7 +1,9 @@
 
-import ImagenHeader from "../Carosuel/ImagenHeader";
-import CarosuelSoftware from "../Carosuel/CarosuelSoftware";
-import Navbar from "../Navbar/Navbar";
+import ImagenHeader from "../CarosuelSection/ImagenHeader";
+import CarosuelSoftware from "../CarosuelSection/CarosuelSoftware";
+import Navbar from "../NavBarSection/NavBar";
+import Features from "../FeaturesSection/Features";
+import Footer from "../FooterSection/Footer";
 
 const Home = () => {
     return (
@@ -9,6 +11,8 @@ const Home = () => {
             <Navbar />
             <ImagenHeader />
             <CarosuelSoftware />
+            <Features />
+            <Footer />
         </>
     );
 };

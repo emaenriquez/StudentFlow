@@ -56,17 +56,17 @@ const CarosuelSoftware = () => {
       <img
         src="/carusel-1.jpg"
         alt="image 1"
-        className="p-8 h-full w-full object-cover"
+        className="p-4 h-full w-full object-cover"
       />
       <img
         src="/carusel-2.jpg"
         alt="image 2"
-        className="p-8 h-full w-full object-cover"
+        className="p-4 h-full w-full object-cover"
       />
       <img
         src="/carusel-3.jpg"
         alt="image 3"
-        className="p-8 h-full w-full object-cover"
+        className="p-4 h-full w-full object-cover"
       />
     </Carousel>
   );
