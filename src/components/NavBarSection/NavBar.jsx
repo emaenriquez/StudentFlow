@@ -1,4 +1,5 @@
-import { Navbar, Typography, Button} from "@material-tailwind/react";
+import { Navbar, Typography, Button } from "@material-tailwind/react";
+import { Link } from 'react-router-dom';
 const NavBar = () => {
     return (
         <header>
@@ -13,13 +14,17 @@ const NavBar = () => {
                     StudentFlow
                 </Typography>
                 {/* Botones */}
-                <div className="flex gap-4">
-                    <Button className="text-pretty lowercase sm:text-2xl" variant="gradient" size="sm">
-                        Log in
-                    </Button>
-                    <Button className="text-pretty lowercase sm:text-2xl" variant="gradient" size="sm">
-                        Sign In
-                    </Button>
+                <div>
+                    <Link to="/role-selection-login">
+                        <Button className="text-pretty lowercase sm:text-2xl" variant="gradient" size="sm">
+                            Log in
+                        </Button>
+                    </Link>
+                    <Link to="/role-selection-register">
+                        <Button className="text-pretty lowercase sm:text-2xl" variant="gradient" size="sm">
+                            Sign In
+                        </Button>
+                    </Link>
                 </div>
             </Navbar>
         </header>
