@@ -15,13 +15,13 @@ const NavBar = () => {
                 </Typography>
                 {/* Botones */}
                 <div>
-                    <Link to="/role-selection-login">
-                        <Button className="text-pretty lowercase sm:text-2xl" variant="gradient" size="sm">
+                    <Link to="/login">
+                        <Button className="text-pretty lowercase sm:text-1xl" variant="gradient" size="sm">
                             Log in
                         </Button>
                     </Link>
-                    <Link to="/role-selection-register">
-                        <Button className="text-pretty lowercase sm:text-2xl" variant="gradient" size="sm">
+                    <Link to="/register">
+                        <Button className="text-pretty lowercase sm:text-1xl" variant="gradient" size="sm">
                             Sign In
                         </Button>
                     </Link>
