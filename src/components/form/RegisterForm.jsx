@@ -1,7 +1,7 @@
 
 const RegisterForm = () => {
     return (
-        <form onSubmit={handleSubmit}>
+        <form>
             <label>
                 Nombre de usuario:
                 <input
