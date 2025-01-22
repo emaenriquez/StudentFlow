@@ -4,11 +4,10 @@ import { useState } from 'react'
 import { Dialog, DialogPanel } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import { Link } from 'react-router-dom'
+
 const navigation = [
-    { name: 'Product', href: '#' },
-    { name: 'Features', href: '#' },
-    { name: 'Marketplace', href: '#' },
-    { name: 'Company', href: '#' },
+    { name: 'Producto', href: '#' },
+    { name: 'Actualizaciones', href: '#' },
 ];
 
 function Home() {
@@ -45,11 +44,7 @@ function Home() {
                             </a>
                         ))}
                     </div>
-                    <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-                        <a href="#" className="text-sm/6 font-semibold text-gray-900">
-                            Log in <span aria-hidden="true">&rarr;</span>
-                        </a>
-                    </div>
+                    
                 </nav>
                 <Dialog open={mobileMenuOpen} onClose={setMobileMenuOpen} className="lg:hidden">
                     <div className="fixed inset-0 z-50" />
@@ -73,7 +68,7 @@ function Home() {
                             </button>
                         </div>
                         <div className="mt-6 flow-root">
-                            <div className="-my-6 divide-y divide-gray-500/10">
+                            <div className="-my-6  divide-gray-500/10">
                                 <div className="space-y-2 py-6">
                                     {navigation.map((item) => (
                                         <a
@@ -90,7 +85,7 @@ function Home() {
                                         to="/login"
                                         className="-mx-3 block rounded-lg px-3 py-2.5 text-base/7 font-semibold text-gray-900 hover:bg-gray-50"
                                     >
-                                        Log in
+                                        Iniciar sesion
                                     </Link>
                                 </div>
                                 <div className="py-6">
@@ -98,7 +93,7 @@ function Home() {
                                         to="/register"
                                         className="-mx-3 block rounded-lg px-3 py-2.5 text-base/7 font-semibold text-gray-900 hover:bg-gray-50"
                                     >
-                                        Sing up
+                                        Registrarse
                                     </Link>
                                 </div>
                             </div>
