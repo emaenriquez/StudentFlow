@@ -26,8 +26,8 @@ const LoginForm = () => {
         const hardcodedPassword = 'password123';
 
         if (formData.email === hardcodedEmail && formData.password === hardcodedPassword) {
-            // Redirigir a Dashboard en caso de éxito
-            navigate('/dashboard');
+            // Redirigir a materials en caso de éxito
+            navigate('/materials');
         } else {
             alert('Correo electrónico o contraseña incorrectos');
         }
