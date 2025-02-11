@@ -1,31 +1,42 @@
-import { useParams } from 'react-router-dom'
-import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react'
-import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
+import { useParams, Route, Routes, Link, useNavigate, useLocation } from 'react-router-dom';
+import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react';
+import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline';
+import AttendanceHistory from './AttendanceHistory';
+import AttendancePercentage from './AttendancePercentage';
+import StudentManagement from './StudentManagement';
 
 const user = {
     name: 'Tom Cook',
     email: 'tom@example.com',
     imageUrl:
         'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-}
-const navigation = [
-    { name: 'Gestion de estudiantes', href: '#', current: false },
-    { name: 'Porcentaje de asistencia', href: '#', current: false },
-    { name: 'Historial de asistencia', href: '#', current: false },
-    { name: 'Mis cursos', href: '#', current: false },
-]
+};
+
 const userNavigation = [
     { name: 'Your Profile', href: '#' },
     { name: 'Settings', href: '#' },
     { name: 'Sign out', href: '#' },
-]
+];
 
 function classNames(...classes) {
-    return classes.filter(Boolean).join(' ')
+    return classes.filter(Boolean).join(' ');
 }
 
 export default function Dashboard() {
     const { subjectsId } = useParams();
+    const navigate = useNavigate();
+    const location = useLocation();
+
+    const handleNavigation = (path) => {
+        // Navegar a la ruta completa desde la raíz del dashboard
+        navigate(`/dashboard/${subjectsId}/${path}`);
+    };
+    const navigation = [
+        { name: 'Gestion de estudiantes', href: 'student-management', current: location.pathname.includes('student-management'), element: <StudentManagement /> },
+        { name: 'Porcentaje de asistencia', href: 'attendance-percentage', current: location.pathname.includes('attendance-percentage'), element: <AttendancePercentage /> },
+        { name: 'Historial de asistencia', href: 'attendance-history', current: location.pathname.includes('attendance-history'), element: <AttendanceHistory /> },
+        { name: 'Mis cursos', href: '#', current: false, },
+    ];
     return (
         <>
             <div className="min-h-full">
@@ -42,18 +53,18 @@ export default function Dashboard() {
                                 </div>
                                 <div className="hidden md:block">
                                     <div className="ml-10 flex items-baseline space-x-4">
+
                                         {navigation.map((item) => (
-                                            <a
+                                            <button
                                                 key={item.name}
-                                                href={item.href}
-                                                aria-current={item.current ? 'page' : undefined}
+                                                onClick={() => handleNavigation(item.href)}
                                                 className={classNames(
                                                     item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
                                                     'rounded-md px-3 py-2 text-sm font-medium',
                                                 )}
                                             >
                                                 {item.name}
-                                            </a>
+                                            </button>
                                         ))}
                                     </div>
                                 </div>
@@ -111,18 +122,16 @@ export default function Dashboard() {
                     <DisclosurePanel className="md:hidden">
                         <div className="space-y-1 px-2 pt-2 pb-3 sm:px-3">
                             {navigation.map((item) => (
-                                <DisclosureButton
+                                <button
                                     key={item.name}
-                                    as="a"
-                                    href={item.href}
-                                    aria-current={item.current ? 'page' : undefined}
+                                    onClick={() => handleNavigation(item.href)}
                                     className={classNames(
                                         item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
-                                        'block rounded-md px-3 py-2 text-base font-medium',
+                                        'block rounded-md px-3 py-2 text-base font-medium'
                                     )}
                                 >
                                     {item.name}
-                                </DisclosureButton>
+                                </button>
                             ))}
                         </div>
                         <div className="border-t border-gray-700 pt-4 pb-3">
@@ -161,13 +170,19 @@ export default function Dashboard() {
 
                 <header className="bg-white shadow-sm">
                     <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
-                    <h1 className="text-3xl font-bold tracking-tight text-gray-900">Dashboard de {subjectsId}</h1>
+                        <h1 className="text-3xl font-bold tracking-tight text-gray-900">Dashboard de {subjectsId}</h1>
                     </div>
                 </header>
                 <main>
-                    <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">{/* Your content */}</div>
+                    <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
+                        <Routes>
+                            <Route path="student-management" element={<StudentManagement />} />
+                            <Route path="attendance-percentage" element={<AttendancePercentage />} />
+                            <Route path="attendance-history" element={<AttendanceHistory />} />
+                        </Routes>
+                    </div>
                 </main>
-            </div>
+            </div >
         </>
-    )
+    );
 }

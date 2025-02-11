@@ -3,8 +3,9 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Home from './pages/Home';
 import Register from './pages/Register';
 import Login from './pages/Login';
-import Dashboard from './pages/Dashboard';
-import Materials from './pages/Subjects';
+// paginas dashboard
+import Dashboard from './pages/Dashboard/Dashboard';
+import Subjects from './pages/Subjects'
 
 const App = () => {
   return (
@@ -13,8 +14,8 @@ const App = () => {
         <Route path="/" element={<Home />} />
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/dashboard/:subjectsId" element={<Dashboard />} />
-        <Route path="/materials" element={<Materials />} />
+        <Route path="/dashboard/:subjectsId/*" element={<Dashboard />} />
+        <Route path="/materials" element={<Subjects />}> </Route>
       </Routes>
     </Router>
   );
