@@ -5,6 +5,7 @@ import AttendanceHistory from './AttendanceHistory';
 import AttendancePercentage from './AttendancePercentage';
 import StudentManagement from './StudentManagement';
 import Subjects from '../Subjects';
+import Uploadattendance from './Uploadattendance';
 const user = {
     name: 'Tom Cook',
     email: 'tom@example.com',
@@ -36,6 +37,9 @@ export default function Dashboard() {
         { name: 'Porcentaje de asistencia', href: 'attendance-percentage', current: location.pathname.includes('attendance-percentage'), element: <AttendancePercentage /> },
         { name: 'Historial de asistencia', href: 'attendance-history', current: location.pathname.includes('attendance-history'), element: <AttendanceHistory /> },
         { name: 'Mis cursos', href: 'subjects', current: location.pathname.includes('subjects'), element: <Subjects /> },
+        { name: 'Cargar asistencia', href: 'upload-attendance', current: location.pathname.includes('upload-attendance'),
+            element: <Uploadattendance />
+        }
     ];
     return (
         <>
@@ -94,7 +98,7 @@ export default function Dashboard() {
                                             className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 ring-1 shadow-lg ring-black/5 transition focus:outline-hidden data-closed:scale-95 data-closed:transform data-closed:opacity-0 data-enter:duration-100 data-enter:ease-out data-leave:duration-75 data-leave:ease-in"
                                         >
                                             {userNavigation.map((item) => (
-                                                <MenuItem  key={item.name}>
+                                                <MenuItem key={item.name}>
                                                     <a
                                                         href={item.href}
                                                         className="block px-4 py-2 text-sm text-gray-700 data-focus:bg-gray-100 data-focus:outline-hidden"
@@ -180,6 +184,7 @@ export default function Dashboard() {
                             <Route path="attendance-percentage" element={<AttendancePercentage />} />
                             <Route path="attendance-history" element={<AttendanceHistory />} />
                             <Route path="subjects" element={<Subjects />} />
+                            <Route path="upload-attendance" element={<Uploadattendance/>}></Route>
                         </Routes>
                     </div>
                 </main>
