@@ -1,23 +1,41 @@
 
 
 // porcentaje de asistencia de los alumnos desde dashboard
+import {
+    List,
+    ListItem,
+    ListItemSuffix,
+    Chip,
+    Card,
+} from "@material-tailwind/react";
 
 const AttendancePercentage = () => {
     const alumnos = [
-        {nombre:'david',porcentaje:90},
-        {nombre:'jose',porcentaje:80},
-        {nombre:'pedro',porcentaje:70},
-        {nombre:'luis',porcentaje:60},
-        {nombre:'maria',porcentaje:50},
+        { nombre: 'david', porcentaje: 90 },
+        { nombre: 'jose', porcentaje: 80 },
+        { nombre: 'pedro', porcentaje: 70 },
+        { nombre: 'luis', porcentaje: 60 },
+        { nombre: 'maria', porcentaje: 50 },
     ]
     return (
         <>
-            <h1>Porcentaje de asistencia</h1>
             {
                 alumnos.map((alumno) => (
-                    <div key={alumno.nombre}>
-                        <p>{alumno.nombre}: {alumno.porcentaje}%</p>
-                    </div>
+                    <Card className="w-96 m-4">
+                        <List>
+                            <ListItem>
+                                {alumno.nombre}
+                                <ListItemSuffix>
+                                    <Chip
+                                        value={`${alumno.porcentaje}%`}
+                                        variant="ghost"
+                                        size="sm"
+                                        className="rounded-full"
+                                    />
+                                </ListItemSuffix>
+                            </ListItem>
+                        </List>
+                    </Card>
                 ))
             }
         </>

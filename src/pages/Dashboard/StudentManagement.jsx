@@ -33,7 +33,6 @@ const StudentManagement = () => {
                 className='flex place-items-end justify-start space-x-2'
                 >
                     <InputFile
-                        label={"Nombre del estudiante"}
                         name={"name"} type={"text"}
                         value={name}
                         onChange={handleNameChange}
