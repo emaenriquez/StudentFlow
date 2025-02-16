@@ -10,12 +10,9 @@ const Uploadattendance = () => {
     { id: 3, nombre: 'Estudiante3', presente: false },
   ]);
 
-  // Función para cambiar el estado de presencia
-  const toggleAsistencia = (id) => {
-    setEstudiantes(estudiantes.map(estudiante => 
-      estudiante.id === id ? { ...estudiante, presente: !estudiante.presente } : estudiante
-    ));
-  };
+  const toggleAttendance = (id) => {
+    setEstudiantes(estudiantes.map((estudiante) => (estudiante.id === id ? { ...estudiante, presente: !estudiante.presente } : estudiante)))
+  }
 
   // Función para cargar la asistencia
   const cargarAsistencia = () => {
@@ -26,16 +23,19 @@ const Uploadattendance = () => {
 
   return (
     <div>
-      <h1>Cargar Asistencia</h1>
+      <h1>Control de asistencia</h1>
       {estudiantes.map(estudiante => (
-        <div key={estudiante.id}>
-          <span>{estudiante.nombre}</span>
-          <button onClick={() => toggleAsistencia(estudiante.id)}>
-            {estudiante.presente ? 'Presente' : 'Ausente'}
-          </button>
+        <div className='m-2' key={estudiante.id}>
+          <input
+            type='checkbox'
+            id={`estudiante-${estudiante.id}`}
+            checked={estudiante.presente}
+            onChange={() => toggleAttendance(estudiante.id)}
+          ></input>
+          <span className='p-4'>{estudiante.nombre}</span>
         </div>
       ))}
-      <button onClick={cargarAsistencia}>Cargar Asistencia</button>
+      <button className="mt-4 w-full bg-cyan-400 text-cyan-50 p-3" onClick={cargarAsistencia}>Cargar Asistencia</button>
     </div>
   );
 };
