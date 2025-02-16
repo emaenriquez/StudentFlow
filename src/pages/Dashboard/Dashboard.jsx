@@ -4,7 +4,7 @@ import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline';
 import AttendanceHistory from './AttendanceHistory';
 import AttendancePercentage from './AttendancePercentage';
 import StudentManagement from './StudentManagement';
-import Subjects from '../Subjects';
+import Subjects from '../main/Subjects';
 import Uploadattendance from './Uploadattendance';
 const user = {
     name: 'Tom Cook',
