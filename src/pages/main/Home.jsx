@@ -1,109 +1,57 @@
-import { useState } from 'react';
-import { Dialog, DialogPanel } from '@headlessui/react';
-import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 import { Link } from 'react-router-dom';
 
 function Home() {
-    const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
     return (
-        <div className="bg-white">
-            <header className="absolute inset-x-0 top-0 z-50">
-                <nav aria-label="Global" className="flex items-center justify-between p-6 lg:px-8">
-                    <div className="flex lg:hidden">
-                        <button
-                            type="button"
-                            onClick={() => setMobileMenuOpen(true)}
-                            className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
-                        >
-                            <span className="sr-only">Open main menu</span>
-                            <Bars3Icon aria-hidden="true" className="size-6" />
-                        </button>
+        <>
+            <section className="w-full px-8 text-gray-700 bg-white">
+                <div className="container flex flex-col flex-wrap items-center justify-between py-5 mx-auto md:flex-row max-w-7xl">
+                    <div className="relative flex flex-col md:flex-row">
+                        <a href="#_" className="flex items-center mb-5 font-medium text-gray-900 lg:w-auto lg:items-center lg:justify-center md:mb-0">
+                            <span className="mx-auto text-xl font-black leading-none text-gray-900 select-none">Student flow<span className="text-indigo-600">.</span></span>
+                        </a>
                     </div>
-                    <div className="hidden lg:flex lg:gap-x-12">
-                        <Link to="/login" className="text-sm/6 font-semibold text-gray-900">
-                            Iniciar sesión
+
+                    <div className="inline-flex items-center ml-5 space-x-6 lg:justify-end">
+                        <Link to="/login" className="text-base font-medium leading-6 text-gray-600 whitespace-no-wrap transition duration-150 ease-in-out hover:text-gray-900">
+                            iniciar sesión
                         </Link>
-                        <Link to="/register" className="text-sm/6 font-semibold text-gray-900">
-                            Registrarse
+                        <Link to="/register" className="inline-flex items-center justify-center px-4 py-2 text-base font-medium leading-6 text-white whitespace-no-wrap bg-indigo-600 border border-transparent rounded-md shadow-sm hover:bg-indigo-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-600">
+                            registrarme
                         </Link>
                     </div>
-                </nav>
-                <Dialog open={mobileMenuOpen} onClose={setMobileMenuOpen} className="lg:hidden">
-                    <div className="fixed inset-0 z-50" />
-                    <DialogPanel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
-                        <div className="flex items-center justify-between">
-                            <button
-                                type="button"
-                                onClick={() => setMobileMenuOpen(false)}
-                                className="-m-2.5 rounded-md p-2.5 text-gray-700"
-                            >
-                                <span className="sr-only">Close menu</span>
-                                <XMarkIcon aria-hidden="true" className="size-6" />
-                            </button>
-                        </div>
-                        <div className="mt-6 flow-root">
-                            <div className="-my-6 divide-y divide-gray-500/10">
-                                <div className="py-6">
-                                    <Link
-                                        to="/login"
-                                        className="-mx-3 block rounded-lg px-3 py-2.5 text-base/7 font-semibold text-gray-900 hover:bg-gray-50"
-                                    >
-                                        Iniciar sesión
-                                    </Link>
-                                </div>
-                                <div className="py-6">
-                                    <Link
-                                        to="/register"
-                                        className="-mx-3 block rounded-lg px-3 py-2.5 text-base/7 font-semibold text-gray-900 hover:bg-gray-50"
-                                    >
-                                        Registrarse
-                                    </Link>
-                                </div>
+                </div>
+            </section>
+
+            <section className="px-2 py-32 bg-white md:px-0">
+                <div className="container items-center max-w-6xl px-8 mx-auto xl:px-5">
+                    <div className="flex flex-wrap items-center sm:-mx-3">
+                        <div className="w-full md:w-1/2 md:px-3">
+                            <div className="w-full pb-6 space-y-6 sm:max-w-md lg:max-w-lg md:space-y-4 lg:space-y-8 xl:space-y-9 sm:pr-5 lg:pr-0 md:pb-0">
+                                <h1 className="text-4xl font-extrabold tracking-tight text-gray-900 sm:text-5xl md:text-4xl lg:text-5xl xl:text-6xl">
+                                    <span className="block xl:inline">Herramienta Util para</span>
+                                    <span className="block text-indigo-600 xl:inline">Optimizar tu Gestión Académica.</span>
+                                </h1>
+                                <p className="mx-auto text-base text-gray-500 sm:max-w-md lg:text-xl md:max-w-3xl">Nunca ha sido tan fácil administrar asistencias, mejorar el control estudiantil y optimizar la gestión académica en un solo lugar.</p>
                             </div>
                         </div>
-                    </DialogPanel>
-                </Dialog>
-            </header>
-
-            <div className="">
-                <div
-                    aria-hidden="true"
-                    className="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80"
-                >
-                    <div
-                        style={{
-                            clipPath:
-                                'polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)',
-                        }}
-                        className="relative left-[calc(50%-11rem)] aspect-1155/678 w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-linear-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]"
-                    />
-                </div>
-                <div className="mx-auto max-w-2xl py-20 sm:py-48 lg:py-56">
-                    <div className="text-center">
-                        <h1 className="text-5xl font-semibold tracking-tight text-balance text-gray-900 sm:text-7xl">
-                            Gestión Inteligente de Asistencias Académicas
-                        </h1>
-                        <p className="mt-8 text-lg font-medium text-pretty text-gray-500 sm:text-xl/8">
-                            Simplifica el seguimiento de asistencias, optimiza la gestión estudiantil y mejora el rendimiento académico con nuestra plataforma intuitiva y eficiente.
-                        </p>
+                        <div className="w-full md:w-1/2">
+                            <div className="w-full h-auto overflow-hidden rounded-md shadow-xl sm:rounded-xl">
+                                <img src="https://images.unsplash.com/photo-1498049860654-af1a5c566876?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80" />
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div
-                    aria-hidden="true"
-                    className="absolute inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)]"
-                >
-                    <div
-                        style={{
-                            clipPath:
-                                'polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)',
-                        }}
-                        className="relative left-[calc(50%+3rem)] aspect-1155/678 w-[36.125rem] -translate-x-1/2 bg-linear-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%+36rem)] sm:w-[72.1875rem]"
-                    />
-                </div>
-            </div>
-        </div>
+            </section>
+        </>
     );
 }
-
+{/* <div className="hidden lg:flex lg:gap-x-12">
+<Link to="/login" className="text-sm/6 font-semibold text-gray-900">
+    Iniciar sesión
+</Link>
+<Link to="/register" className="text-sm/6 font-semibold text-gray-900">
+    Registrarse
+</Link>
+</div> */}
 export default Home;
